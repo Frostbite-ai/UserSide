@@ -203,6 +203,7 @@ function AccountPanel() {
                   type="text"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
                 />
               </div>
 
@@ -252,7 +253,6 @@ function AccountPanel() {
                   rows="4"
                   value={address1}
                   onChange={(e) => setAddress(e.target.value)}
-                  required
                 ></textarea>
               </div>
             </div>
@@ -271,7 +271,6 @@ function AccountPanel() {
                   type="text"
                   value={zip}
                   onChange={(e) => setZip(e.target.value)}
-                  required
                 />
               </div>
 
@@ -289,7 +288,6 @@ function AccountPanel() {
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  required
                 />
               </div>
 
@@ -306,7 +304,6 @@ function AccountPanel() {
                   className="form-select w-full"
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  required
                 >
                   <option value="">Select State</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -371,7 +368,6 @@ function AccountPanel() {
                   className="form-select w-full"
                   value={maritalStatus}
                   onChange={(e) => setMaritalStatus(e.target.value)}
-                  required
                 >
                   <option value="">Select Marital Status</option>
                   <option value="Single">Single</option>
@@ -404,7 +400,7 @@ function AccountPanel() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="kids"
                 >
-                  Number of Kids
+                  Number of Children
                 </label>
                 <input
                   id="kids"
@@ -413,7 +409,6 @@ function AccountPanel() {
                   min="0"
                   value={kids}
                   onChange={(e) => setKids(e.target.value)}
-                  required
                 />
               </div>
             </div>
@@ -422,7 +417,7 @@ function AccountPanel() {
           <section>
             <div className="sm:flex sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
               {/* Family Income */}
-              <div className="sm:w-1/3">
+              <div className="sm:w-[32%]">
                 <label
                   className="block text-sm font-medium mb-1"
                   htmlFor="income"
@@ -436,7 +431,6 @@ function AccountPanel() {
                   min="0"
                   value={familyIncome}
                   onChange={(e) => setFamilyIncome(e.target.value)}
-                  required
                 />
               </div>
             </div>

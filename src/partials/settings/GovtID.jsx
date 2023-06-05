@@ -122,7 +122,7 @@ function GovtID() {
           <section>
             <div className="sm:flex sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-2">
               {/* e-Sharam Card,*/}
-              <div className="sm:w-1/3">
+              <div className="sm:w-[32%]">
                 <label
                   className="block text-sm font-medium mb-1"
                   htmlFor="EsharamCard"
@@ -135,13 +135,12 @@ function GovtID() {
                   type="text"
                   value={esharamcard}
                   onChange={(e) => setEsharamCard(e.target.value)}
-                  required
                 />
                 {/* your other fields go here */}
               </div>
 
               {/* Voter ID Card,*/}
-              <div className="sm:w-1/3">
+              <div className="sm:w-[32.2%]">
                 <label
                   className="block text-sm font-medium mb-1"
                   htmlFor="VoterID"
@@ -154,7 +153,6 @@ function GovtID() {
                   type="text"
                   value={voterID}
                   onChange={(e) => setVoterID(e.target.value)}
-                  required
                 />
                 {/* your other fields go here */}
               </div>
