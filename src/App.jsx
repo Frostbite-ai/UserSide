@@ -1,45 +1,32 @@
-import React, { useEffect } from 'react';
-import {
-  Routes,
-  Route,
-  useLocation
-} from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import './css/style.css';
+import "./css/style.css";
 
-import './charts/ChartjsConfig';
+import "./charts/ChartjsConfig";
 
 // Import pages
 
-import Account from './pages/settings/Account';
-import MedicalRecords from './pages/settings/MedicalRecords';
-import EducationStatus from './pages/settings/EducationStatus';
-import EmploymentStatus from './pages/settings/EmploymentStatus';
-import GovtID from './pages/settings/GovtID';
-import SocioeconomicStatus from './pages/settings/SocioeconomicStatus';
-
-
+import Account from "./pages/settings/Account";
+import MedicalRecords from "./pages/settings/MedicalRecords";
+import EducationStatus from "./pages/settings/EducationStatus";
+import EmploymentStatus from "./pages/settings/EmploymentStatus";
+import GovtID from "./pages/settings/GovtID";
+import SocioeconomicStatus from "./pages/settings/SocioeconomicStatus";
 
 // import Notifications from './pages/settings/Notifications';
 // import Apps from './pages/settings/Apps';
 // import Billing from './pages/settings/Billing';
-import Feedback from './pages/Feedback';
-import Dashboard from './pages/Dashboard';
-import Meetups from './pages/community/Meetups';
-import MeetupsPost from './pages/community/MeetupsPost';
-import TasksList from './pages/tasks/TasksList';
-import Messages from './pages/Messages';
-import Calendar from './pages/Calendar';
-import Campaigns from './pages/Campaigns';
-import Faqs from './pages/utility/Faqs';
-import PageNotFound from './pages/utility/PageNotFound';
-
-
-
-
-
-
-
+import Feedback from "./pages/Feedback";
+import Dashboard from "./pages/Dashboard";
+import Meetups from "./pages/community/Meetups";
+import MeetupsPost from "./pages/community/MeetupsPost";
+import TasksList from "./pages/tasks/TasksList";
+import Messages from "./pages/Messages";
+import Calendar from "./pages/Calendar";
+import Campaigns from "./pages/Campaigns";
+import Faqs from "./pages/utility/Faqs";
+import PageNotFound from "./pages/utility/PageNotFound";
 
 // import Plans from './pages/settings/Plans';
 
@@ -90,19 +77,18 @@ import PageNotFound from './pages/utility/PageNotFound';
 // import IconsPage from './pages/component/IconsPage';
 
 function App() {
-
   const location = useLocation();
 
   useEffect(() => {
-    document.querySelector('html').style.scrollBehavior = 'auto'
-    window.scroll({ top: 0 })
-    document.querySelector('html').style.scrollBehavior = ''
+    document.querySelector("html").style.scrollBehavior = "auto";
+    window.scroll({ top: 0 });
+    document.querySelector("html").style.scrollBehavior = "";
   }, [location.pathname]); // triggered on route change
 
   return (
     <>
       <Routes>
-      <Route path="/settings/account" element={<Account />} />
+        <Route path="/settings/account" element={<Account />} />
         {/* <Route path="/settings/notifications" element={<Notifications />} /> */}
         {/* <Route path="/settings/apps" element={<Apps />} /> */}
         {/* <Route path="/settings/plans" element={<Plans />} /> */}
@@ -122,18 +108,18 @@ function App() {
         <Route path="/community/meetups-post" element={<MeetupsPost />} />
         <Route path="/settings/MedicalRecords" element={<MedicalRecords />} />
         <Route path="/settings/EducationStatus" element={<EducationStatus />} />
-        <Route path="/settings/EmploymentStatus" element={<EmploymentStatus />} />
+        <Route
+          path="/settings/EmploymentStatus"
+          element={<EmploymentStatus />}
+        />
         <Route path="/settings/GovtID" element={<GovtID />} />
-        <Route path="/settings/SocioeconomicStatus" element={<SocioeconomicStatus />} />
+        <Route
+          path="/settings/SocioeconomicStatus"
+          element={<SocioeconomicStatus />}
+        />
+        {/* <Route path="/meetups/:id" element={<MeetupsPost />} /> */}
 
-
-
-
-       
-
-
-
-{/* 
+        {/* 
       <Route path="/community/profile" element={<Profile />} />
         <Route path="/community/feed" element={<Feed />} />
         <Route path="/community/forum" element={<Forum />} />
