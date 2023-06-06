@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 import "./css/style.css";
 
@@ -27,6 +28,11 @@ import Calendar from "./pages/Calendar";
 import Campaigns from "./pages/Campaigns";
 import Faqs from "./pages/utility/Faqs";
 import PageNotFound from "./pages/utility/PageNotFound";
+import EventPost from "./pages/community/EventPage";
+
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import ResetPassword from "./pages/ResetPassword";
 
 // import Plans from './pages/settings/Plans';
 
@@ -55,9 +61,7 @@ import PageNotFound from "./pages/utility/PageNotFound";
 // import Roadmap from './pages/utility/Roadmap';
 // import EmptyState from './pages/utility/EmptyState';
 // import KnowledgeBase from './pages/utility/KnowledgeBase';
-// import Signin from './pages/Signin';
-// import Signup from './pages/Signup';
-// import ResetPassword from './pages/ResetPassword';
+
 // import Onboarding01 from './pages/Onboarding01';
 // import Onboarding02 from './pages/Onboarding02';
 // import Onboarding03 from './pages/Onboarding03';
@@ -117,7 +121,10 @@ function App() {
           path="/settings/SocioeconomicStatus"
           element={<SocioeconomicStatus />}
         />
-        {/* <Route path="/meetups/:id" element={<MeetupsPost />} /> */}
+        <Route path="/event/:id" element={<EventPost />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* 
       <Route path="/community/profile" element={<Profile />} />

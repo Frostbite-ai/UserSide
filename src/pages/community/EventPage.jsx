@@ -21,7 +21,7 @@ import Avatar02 from "../../images/avatar-02.jpg";
 import Avatar03 from "../../images/avatar-03.jpg";
 import Avatar04 from "../../images/avatar-04.jpg";
 
-function MeetupsPost() {
+function EventPost() {
   //     {
   //   sessionId,
   //   eventName,
@@ -635,4 +635,4 @@ function MeetupsPost() {
   );
 }
 
-export default MeetupsPost;
+export default EventPost;
