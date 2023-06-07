@@ -23,7 +23,7 @@ const Signin = () => {
 
       if (response.status === 200) {
         // store JWT token in localStorage or sessionStorage
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("token", response.data.accessToken);
         // or
         // sessionStorage.setItem('token', response.data.token);
 

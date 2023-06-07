@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MeetupsPost from "./MeetupsPost";
 import { Link } from "react-router-dom";
-// import SearchForm from "../../partials/actions/SearchForm";
 
 export default function EventsPosts() {
   const [posts, setPosts] = useState([]);
@@ -12,15 +11,25 @@ export default function EventsPosts() {
 
   useEffect(() => {
     axios
-      .get("https://json.extendsclass.com/bin/c6c7aca8a86e")
+      .get("http://localhost:3000/events/")
       .then((response) => {
-        const sortedPosts = response.data.sort((a, b) =>
-          b.eventDate.localeCompare(a.eventDate)
+        console.log(response);
+
+        const sortedPosts = response.data.sort((a, b) => {
+          return (
+            new Date(b.eventStartTime).getTime() -
+            new Date(a.eventStartTime).getTime()
+          );
+        });
+
+        setPosts(response.data);
+        const today = new Date().toISOString();
+        const upcoming = sortedPosts.filter(
+          (post) => new Date(post.eventStartTime).toISOString() >= today
         );
-        setPosts(sortedPosts);
-        const today = new Date().toISOString().split("T")[0];
-        const upcoming = sortedPosts.filter((post) => post.eventDate >= today);
-        const past = sortedPosts.filter((post) => post.eventDate < today);
+        const past = sortedPosts.filter(
+          (post) => new Date(post.eventStartTime).toISOString() < today
+        );
         setUpcomingEvents(upcoming);
         setPastEvents(past);
       })
@@ -66,11 +75,10 @@ export default function EventsPosts() {
       <div className="grid sm:grid-cols-2 gap-6">
         {upcomingEvents
           .filter(
-            (event) =>
-              !selectedCategory || event.eventCategory === selectedCategory
+            (event) => !selectedCategory || event.category === selectedCategory
           )
           .map((post) => (
-            <MeetupsPost key={post.sessionId} {...post} />
+            <MeetupsPost key={post._id} {...post} />
           ))}
       </div>
       <h1 className="text-xl md:text-2xl text-slate-800 mt-6 mb-1 font-bold">
@@ -80,11 +88,10 @@ export default function EventsPosts() {
       <div className="grid sm:grid-cols-2 gap-6">
         {pastEvents
           .filter(
-            (event) =>
-              !selectedCategory || event.eventCategory === selectedCategory
+            (event) => !selectedCategory || event.category === selectedCategory
           )
           .map((post) => (
-            <MeetupsPost key={post.sessionId} {...post} />
+            <MeetupsPost key={post._id} {...post} />
           ))}
       </div>
     </>

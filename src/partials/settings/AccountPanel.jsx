@@ -150,7 +150,7 @@ function AccountPanel() {
                   onChange={(e) => setGender(e.target.value)}
                   required
                 >
-                  <option value="">Select Gender</option>
+                  <option value="">Select</option>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
                   <option value="other">Other</option>
@@ -181,7 +181,7 @@ function AccountPanel() {
                   onChange={(e) => setCommunityStatus(e.target.value)}
                   required
                 >
-                  <option value="">Select Language</option>
+                  <option value="">Select</option>
                   <option value="community_1">Community 1</option>
                   <option value="community_2">Community 2</option>
                   <option value="community_3">Community 3</option>

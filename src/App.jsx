@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import withProtection from "./hooks/ProtectedRoute";
 
 import "./css/style.css";
 
@@ -98,7 +99,7 @@ function App() {
         {/* <Route path="/settings/plans" element={<Plans />} /> */}
         {/* <Route path="/settings/billing" element={<Billing />} /> */}
         <Route path="/feedback" element={<Feedback />} />
-        <Route exact path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/meetups" element={<Meetups />} />
         <Route path="/meetups/post" element={<MeetupsPost />} />
         <Route path="/settings" element={<Account />} />
