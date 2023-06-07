@@ -1,16 +1,10 @@
-import { Navigate } from "react-router-dom";
-import useUser from "./useUser"; // Import your custom hook
+import { useRoutes, Navigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
-const withProtection = (Component) => {
-  return (props) => {
-    const { user } = useUser(); // Use your custom hook
+function ProtectedRoute({ children }) {
+  const { isLoggedIn } = useAuth();
 
-    if (!user.isLoggedIn) {
-      return <Navigate to="/login" replace />;
-    }
+  return isLoggedIn ? children : <Navigate to="/signin" replace />;
+}
 
-    return <Component {...props} />;
-  };
-};
-
-export default withProtection;
+export default ProtectedRoute;

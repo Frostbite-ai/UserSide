@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import TinyMiraclesLogo from "../images/tinymiracles.webp";
 import AuthImage from "../images/auth-image.webp";
+import { useAuth } from "../hooks/AuthContext";
 
 const Signin = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +26,8 @@ const Signin = () => {
       if (response.status === 200) {
         // store JWT token in localStorage or sessionStorage
         localStorage.setItem("token", response.data.accessToken);
+        setIsLoggedIn(true);
+
         // or
         // sessionStorage.setItem('token', response.data.token);
 

@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import ProtectedRoute from "./utils/ProtectedRoute";
-import withProtection from "./hooks/ProtectedRoute";
+
+// import ProtectedRoute from "./utils/ProtectedRoute";
+// import withProtection from "./hooks/ProtectedRoute";
+import { AuthProvider } from "./hooks/AuthContext";
+import ProtectedRoute from "./hooks/ProtectedRoute";
 
 import "./css/style.css";
+import { useRoutes } from "react-router-dom";
+// import ProtectedRoute from "./hooks/ProtectedRoute";
 
 import "./charts/ChartjsConfig";
 
@@ -92,42 +97,53 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/settings/account" element={<Account />} />
-        {/* <Route path="/settings/notifications" element={<Notifications />} /> */}
-        {/* <Route path="/settings/apps" element={<Apps />} /> */}
-        {/* <Route path="/settings/plans" element={<Plans />} /> */}
-        {/* <Route path="/settings/billing" element={<Billing />} /> */}
-        <Route path="/feedback" element={<Feedback />} />
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/meetups" element={<Meetups />} />
-        <Route path="/meetups/post" element={<MeetupsPost />} />
-        <Route path="/settings" element={<Account />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/tasks/list" element={<TasksList />} />
-        <Route path="/utility/faqs" element={<Faqs />} />
-        <Route path="/campaigns" element={<Campaigns />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/community/meetups" element={<Meetups />} />
-        <Route path="/community/meetups-post" element={<MeetupsPost />} />
-        <Route path="/settings/MedicalRecords" element={<MedicalRecords />} />
-        <Route path="/settings/EducationStatus" element={<EducationStatus />} />
-        <Route
-          path="/settings/EmploymentStatus"
-          element={<EmploymentStatus />}
-        />
-        <Route path="/settings/GovtID" element={<GovtID />} />
-        <Route
-          path="/settings/SocioeconomicStatus"
-          element={<SocioeconomicStatus />}
-        />
-        <Route path="/event/:id" element={<EventPost />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+      <AuthProvider>
+        <Routes>
+          <Route
+            path="/settings/account"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
+          {/* <Route path="/settings/notifications" element={<Notifications />} /> */}
+          {/* <Route path="/settings/apps" element={<Apps />} /> */}
+          {/* <Route path="/settings/plans" element={<Plans />} /> */}
+          {/* <Route path="/settings/billing" element={<Billing />} /> */}
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/meetups" element={<Meetups />} />
+          <Route path="/meetups/post" element={<MeetupsPost />} />
+          <Route path="/settings" element={<Account />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/tasks/list" element={<TasksList />} />
+          <Route path="/utility/faqs" element={<Faqs />} />
+          <Route path="/campaigns" element={<Campaigns />} />
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/community/meetups" element={<Meetups />} />
+          <Route path="/community/meetups-post" element={<MeetupsPost />} />
+          <Route path="/settings/MedicalRecords" element={<MedicalRecords />} />
+          <Route
+            path="/settings/EducationStatus"
+            element={<EducationStatus />}
+          />
+          <Route
+            path="/settings/EmploymentStatus"
+            element={<EmploymentStatus />}
+          />
+          <Route path="/settings/GovtID" element={<GovtID />} />
+          <Route
+            path="/settings/SocioeconomicStatus"
+            element={<SocioeconomicStatus />}
+          />
+          <Route path="/event/:id" element={<EventPost />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* 
+          {/* 
       <Route path="/community/profile" element={<Profile />} />
         <Route path="/community/feed" element={<Feed />} />
         <Route path="/community/forum" element={<Forum />} />
@@ -198,7 +214,8 @@ function App() {
         <Route path="/component/accordion" element={<AccordionPage />} />
         <Route path="/component/icons" element={<IconsPage />} />
         <Route path="*" element={<PageNotFound />} /> */}
-      </Routes>
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

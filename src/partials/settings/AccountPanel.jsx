@@ -16,32 +16,39 @@ function AccountPanel() {
   const [maritalStatus, setMaritalStatus] = useState(""); // state variable for marital status
   const [familyIncome, setFamilyIncome] = useState(""); // state variable for family income
   const [community, setCommunityStatus] = useState(""); // state variable for marital status
-  const id = "e8216b0c-4ff2-403b-94d5-4b45b25e8552"; // Constant user ID for now
+  const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/user/e8216b0c-4ff2-403b-94d5-4b45b25e8552`
+          `http://localhost:3000/user/user/${id}`
         );
 
-        setName(response.data.basicDetails.Name);
-        setAge(response.data.basicDetails.Age);
-        setGender(response.data.basicDetails.Gender);
+        setName(response.data.basicDetails.name);
 
-        setCommunity(response.data.basicDetails.Community);
+        setAge(response.data.basicDetails.age);
+        setGender(response.data.basicDetails.gender);
+        console.log(response.data.basicDetails.gender);
+        setCommunityStatus(response.data.basicDetails.Community);
         setPhoneNumber(response.data.basicDetails.PhoneNumber);
-        setAddress(response.data.basicDetails.Address.address1);
-        setCity(response.data.basicDetails.Address.city);
-        setState(response.data.basicDetails.Address.state);
-        setZip(response.data.basicDetails.Address.zip);
-        setPrimaryLanguage(response.data.basicDetails.PrimaryLanguage);
-        setKids(response.data.basicDetails.FamilyDetails.NumOfChild);
-        setDependents(response.data.basicDetails.FamilyDetails.dependents);
+        console.log(response.data.basicDetails.PhoneNumber);
+        setAddress(response.data.basicDetails.address.address1);
+        console.log(response.data.basicDetails.address.address1);
+        setCity(response.data.basicDetails.address.city);
+        console.log(response.data.basicDetails.address.city);
+        setState(response.data.basicDetails.address.state);
+        console.log(response.data.basicDetails.address.state);
+        setZip(response.data.basicDetails.address.zip);
+        console.log(response.data.basicDetails.address.zip);
+        setPrimaryLanguage(response.data.basicDetails.primaryLanguage);
+        setKids(response.data.basicDetails.familyDetails.numOfChild);
+        setDependents(response.data.basicDetails.familyDetails.dependents);
         setMaritalStatus(
-          response.data.basicDetails.FamilyDetails.MaritalStatus
+          response.data.basicDetails.familyDetails.maritalStatus
         );
-        setFamilyIncome(response.data.basicDetails.FamilyDetails.Income);
+
+        setFamilyIncome(response.data.basicDetails.familyDetails.income);
       } catch (error) {
         console.error("Failed to fetch user details.", error);
       }
@@ -54,26 +61,26 @@ function AccountPanel() {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/user/e8216b0c-4ff2-403b-94d5-4b45b25e8552`,
+        `http://localhost:3000/user/userUpdates/${id}`,
         {
           basicDetails: {
-            Name: name,
-            Age: age,
+            name: name,
+            age: age,
             PhoneNumber: phoneNumber,
-            Address: {
+            address: {
               address1: address1,
               city: city,
               state: state,
               zip: zip,
             },
             Community: community,
-            FamilyDetails: {
-              NumOfChild: kids,
-              MaritalStatus: maritalStatus,
-              Income: familyIncome,
+            familyDetails: {
+              numOfChild: kids,
+              maritalStatus: maritalStatus,
+              income: familyIncome,
               dependents: dependents,
             },
-            PrimaryLanguage: primaryLanguage,
+            primaryLanguage: primaryLanguage,
           },
         }
       );
@@ -195,7 +202,7 @@ function AccountPanel() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="PhoneNumber"
                 >
-                  Phone Number
+                  Phone Number <span className="text-rose-500">*</span>
                 </label>
                 <input
                   id="PhoneNumber"

@@ -10,12 +10,14 @@ function MedicalStatus() {
   const [vaccinationRecords, setVaccinationRecords] = useState(""); // state variable vaccinationRecords
   const [healthInsurance, setHealthInsurance] = useState(""); // state variable healthInsurance
 
-  const id = "e8216b0c-4ff2-403b-94d5-4b45b25e8552"; // Constant user ID for now
+  const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/user/user/${id}`
+        );
 
         setHospitalizationRecords(
           response.data.medicalRecords.hospitalizationRecords
@@ -37,17 +39,20 @@ function MedicalStatus() {
     event.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:3000/user/${id}`, {
-        govtSchemes: {
-          hospitalizationRecords: hospitalizationRecords,
-          chronicIllnesses: chronicIllnesses,
-          currentMedications: currentMedications,
-          bloodGroup: bloodGroup,
-          allergies: allergies,
-          vaccinationRecords: vaccinationRecords,
-          healthInsurance: healthInsurance,
-        },
-      });
+      const response = await axios.put(
+        `http://localhost:3000/user/userUpdates/${id}`,
+        {
+          medicalRecords: {
+            hospitalizationRecords: hospitalizationRecords,
+            chronicIllnesses: chronicIllnesses,
+            currentMedications: currentMedications,
+            bloodGroup: bloodGroup,
+            allergies: allergies,
+            vaccinationRecords: vaccinationRecords,
+            healthInsurance: healthInsurance,
+          },
+        }
+      );
       console.log(response.data);
       alert("Profile updated successfully.");
     } catch (error) {

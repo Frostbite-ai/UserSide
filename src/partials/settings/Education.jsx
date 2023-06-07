@@ -6,12 +6,14 @@ function EducationStatus() {
   const [ongoingEducation, setOngoingEducation] = useState(""); // state variable for previousEmployment
   const [furtherStudyInterest, setFurtherStudyInterest] = useState(""); // state variable for jobTraining
 
-  const id = "e8216b0c-4ff2-403b-94d5-4b45b25e8552"; // Constant user ID for now
+  const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/user/user/${id}`
+        );
 
         setCurrentEducationLevel(
           response.data.educationStatus.currentEducationLevel
@@ -31,13 +33,16 @@ function EducationStatus() {
     event.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:3000/user/${id}`, {
-        employmentStatus: {
-          currentEducationLevel: currentEmployment,
-          ongoingEducation: previousEmployment,
-          furtherStudyInterest: furtherStudyInterest,
-        },
-      });
+      const response = await axios.put(
+        `http://localhost:3000/user/userUpdates/${id}`,
+        {
+          educationStatus: {
+            currentEducationLevel: currentEducationLevel,
+            ongoingEducation: ongoingEducation,
+            furtherStudyInterest: furtherStudyInterest,
+          },
+        }
+      );
       console.log(response.data);
       alert("Profile updated successfully.");
     } catch (error) {

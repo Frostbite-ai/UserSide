@@ -7,12 +7,14 @@ function Socioeconomic() {
   const [housingType, setHousingType] = useState(""); // state variable for jobTraining
   const [transportationAccess, setTransportationAccess] = useState(""); // state variable for workNature
 
-  const id = "e8216b0c-4ff2-403b-94d5-4b45b25e8552"; // Constant user ID for now
+  const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/user/user/${id}`
+        );
 
         setCleanWaterAccess(response.data.SocioeconomicStatus.cleanWaterAccess);
         setElectricityAccess(
@@ -33,14 +35,17 @@ function Socioeconomic() {
     event.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:3000/user/${id}`, {
-        employmentStatus: {
-          cleanWaterAccess: cleanWaterAccess,
-          electricityAccess: electricityAccess,
-          housingType: housingType,
-          transportationAccess: transportationAccess,
-        },
-      });
+      const response = await axios.put(
+        `http://localhost:3000/user/userUpdates/${id}`,
+        {
+          SocioeconomicStatus: {
+            cleanWaterAccess: cleanWaterAccess,
+            electricityAccess: electricityAccess,
+            housingType: housingType,
+            transportationAccess: transportationAccess,
+          },
+        }
+      );
       console.log(response.data);
       alert("Profile updated successfully.");
     } catch (error) {
