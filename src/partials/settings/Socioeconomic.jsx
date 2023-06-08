@@ -13,7 +13,7 @@ function Socioeconomic() {
     const fetchUserDetail = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/user/user/${id}`
+          `http://15.206.18.143:3000/user/user/${id}`
         );
 
         setCleanWaterAccess(response.data.SocioeconomicStatus.cleanWaterAccess);
