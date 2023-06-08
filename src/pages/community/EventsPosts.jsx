@@ -11,7 +11,7 @@ export default function EventsPosts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/events/")
+      .get("http://localhost:3000/events/list")
       .then((response) => {
         console.log(response);
 
@@ -40,9 +40,9 @@ export default function EventsPosts() {
 
   const categories = [
     "Legal counsel",
-    "Financial",
+    "Bank",
     "Employment and Entrepreneurship",
-    "Health and Wellness",
+    "Medical",
     "Women's Rights",
   ];
 
