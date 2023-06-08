@@ -15,7 +15,7 @@ function Employment() {
     const fetchUserDetail = async () => {
       try {
         const response = await axios.get(
-          `http://15.206.18.143:3000:3000/user/user/${id}`
+          `http://15.206.18.143:3000/user/user/${id}`
         );
 
         setCurrentEmployment(response.data.employmentStatus.currentEmployment);
@@ -36,7 +36,7 @@ function Employment() {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/user/userUpdates/${id}`,
+        `hhttp://15.206.18.143:3000/user/userUpdates/${id}`,
         {
           employmentStatus: {
             currentEmployment: currentEmployment,

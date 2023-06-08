@@ -33,7 +33,7 @@ export default function RegisteredEventPost() {
     if (postInfo) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/user/attendAnEvent",
+          "http://15.206.18.143:3000/user/attendAnEvent",
           {
             eventId: postInfo._id,
             userId: userID,

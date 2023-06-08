@@ -11,7 +11,7 @@ export default function EventsPosts() {
 
   useEffect(() => {
     axios
-      .get("http://15.206.18.143:3000:3000/events/list")
+      .get("http://15.206.18.143:3000/events/list")
       .then((response) => {
         console.log(response);
 

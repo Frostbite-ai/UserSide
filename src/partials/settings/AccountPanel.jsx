@@ -61,7 +61,7 @@ function AccountPanel() {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/user/userUpdates/${id}`,
+        `http://15.206.18.143:3000/user/userUpdates/${id}`,
         {
           basicDetails: {
             name: name,
