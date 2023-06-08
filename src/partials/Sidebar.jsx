@@ -1,11 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import SidebarLinkGroup from "./SidebarLinkGroup";
+
+// const translations = {
+//   Dashboard: {
+//     en: "Dashboard",
+//     hi: "डैशबोर्ड",
+//     mr: "डॅशबोर्ड",
+//   },
+//   Events: {
+//     en: "Events",
+//     hi: "आयोजन",
+//     mr: "आयोजन",
+//   },
+// }
+
+const languages = [
+  { name: "English", code: "en" },
+  { name: "हिन्दी", code: "hi" },
+  { name: "मराठी", code: "mr" },
+];
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
   const { pathname } = location;
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const trigger = useRef(null);
   const sidebar = useRef(null);
@@ -29,7 +51,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
     };
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
-  });
+  }, [sidebarOpen, sidebar, trigger]);
 
   // close if the esc key is pressed
   useEffect(() => {
@@ -141,7 +163,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 •••
               </span>
               <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                Pages
+                {t("Pages")}
               </span>
             </h3>
             <ul className="mt-3">
@@ -188,7 +210,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Dashboard
+                      {t("Dashboard")}
                     </span>
                   </div>
                 </NavLink>
@@ -229,7 +251,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      All Events
+                      {t("AllEvents")}
                     </span>
                   </div>
                 </NavLink>
@@ -270,7 +292,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Registered Events
+                      {t("RegisteredEvents")}
                     </span>
                   </div>
                 </NavLink>
@@ -361,7 +383,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         />
                       </svg>
                       <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                        Messages
+                        {t("Messages")}
                       </span>
                     </div>
                     {/* Badge */}
@@ -409,7 +431,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Calendar
+                      {t("Calendar")}
                     </span>
                   </div>
                 </NavLink>
@@ -450,7 +472,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Campaigns
+                      {t("Campaigns")}
                     </span>
                   </div>
                 </NavLink>
@@ -513,7 +535,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               />
                             </svg>
                             <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                              My Profile
+                              {t("MyProfile")}
                             </span>
                           </div>
                           {/* Icon */}
@@ -543,7 +565,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200 ">
-                                Basic Details
+                                {t("BasicDetails")}
                               </span>
                             </NavLink>
                           </li>
@@ -562,7 +584,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Government IDs
+                                {t("GovernmentIDs")}
                               </span>
                             </NavLink>
                           </li>
@@ -581,7 +603,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Employment Status
+                                {t("EmploymentStatus")}
                               </span>
                             </NavLink>
                           </li>
@@ -600,7 +622,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Education Status
+                                {t("EducationStatus")}
                               </span>
                             </NavLink>
                           </li>
@@ -619,7 +641,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Socioeconomic Status
+                                {t("SocioeconomicStatus")}
                               </span>
                             </NavLink>
                           </li>
@@ -638,7 +660,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Medical Records
+                                {t("MedicalRecords")}
                               </span>
                             </NavLink>
                           </li>
@@ -774,6 +796,23 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 <path className="text-slate-600" d="M3 23H1V1h2z" />
               </svg>
             </button>
+          </div>
+        </div>
+        <div className="mt-auto text-white">
+          <div className="flex flex-col gap-1 items-start">
+            {languages.map((language) => (
+              <span
+                key={language.code}
+                className={`transition-transform cursor-pointer hover:scale-110 font-semibold ${
+                  i18n.language === language.code
+                    ? "text-blue-400"
+                    : "text-gray-400"
+                }`}
+                onClick={() => i18n.changeLanguage(language.code)}
+              >
+                {language.name}
+              </span>
+            ))}
           </div>
         </div>
       </div>
