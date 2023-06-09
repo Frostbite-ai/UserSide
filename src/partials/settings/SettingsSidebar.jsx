@@ -1,9 +1,12 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function SettingsSidebar() {
   const location = useLocation();
   const { pathname } = location;
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-nowrap overflow-x-scroll no-scrollbar md:block md:overflow-auto px-3 py-6 border-b md:border-b-0 md:border-r border-slate-200 min-w-60 md:space-y-3">
@@ -33,7 +36,7 @@ function SettingsSidebar() {
                     : "hover:text-slate-700"
                 }`}
               >
-                Basic Details
+                {t("BasicDetails")}
               </span>
             </NavLink>
           </li>
@@ -60,7 +63,7 @@ function SettingsSidebar() {
                     : "hover:text-slate-700"
                 }`}
               >
-                Govt IDs
+                {t("GovtIDs")}
               </span>
             </NavLink>
           </li>
@@ -92,7 +95,7 @@ function SettingsSidebar() {
                       : "hover:text-slate-700"
                   }`}
                 >
-                  Employment Status
+                  {t("EmploymentStatus")}
                 </span>
               </NavLink>
             </li>
@@ -122,7 +125,7 @@ function SettingsSidebar() {
                       : "hover:text-slate-700"
                   }`}
                 >
-                  Education Status
+                  {t("EducationStatus")}
                 </span>
               </NavLink>
             </li>
@@ -151,7 +154,7 @@ function SettingsSidebar() {
                       : "hover:text-slate-700"
                   }`}
                 >
-                  Socioeconomic Status
+                  {t("SocioeconomicStatus")}
                 </span>
               </NavLink>
             </li>
@@ -180,7 +183,7 @@ function SettingsSidebar() {
                       : "hover:text-slate-700"
                   }`}
                 >
-                  Medical Records
+                  {t("MedicalRecords")}
                 </span>
               </NavLink>
             </li>

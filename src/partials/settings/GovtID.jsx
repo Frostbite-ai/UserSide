@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import { useTranslation } from "react-i18next";
 
 function GovtID() {
   const [aadharcard, setAadharCard] = useState(""); // state variable for aadharcard
@@ -7,7 +8,8 @@ function GovtID() {
   const [esharamcard, setEsharamCard] = useState(""); // state variable for esharamCard
   const [voterID, setVoterID] = useState(""); // state variable for voterID
   const [pancard, setPancard] = useState(""); // state variable for pancard
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
@@ -58,7 +60,7 @@ function GovtID() {
         {/* Panel body */}
         <div className="p-6 space-y-6">
           <h2 className="text-2xl text-slate-800 font-bold mb-5">
-            Government IDs
+            {t("GovernmentIDs")}
           </h2>
 
           {/* section 1 */}
@@ -70,7 +72,7 @@ function GovtID() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="RationCard"
                 >
-                  Ration Card
+                  {t("RationCard")}
                 </label>
                 <select
                   id="RationCard"
@@ -90,7 +92,7 @@ function GovtID() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="Aadharcard"
                 >
-                  Aadhar Card
+                  {t("AadharCard")}
                 </label>
                 <select
                   id="Aadharcard"
@@ -110,7 +112,7 @@ function GovtID() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="PanCard"
                 >
-                  Pan card
+                  {t("PanCard")}
                 </label>
                 <select
                   id="PanCard"
@@ -135,7 +137,7 @@ function GovtID() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="EsharamCard"
                 >
-                  e-Sharam Card
+                  {t("ESharamCard")}
                 </label>
                 <select
                   id="EsharamCard"
@@ -155,7 +157,7 @@ function GovtID() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="VoterID"
                 >
-                  Voter ID Card
+                  {t("VoterIDCard")}
                 </label>
                 <select
                   id="VoterID"
@@ -180,7 +182,7 @@ function GovtID() {
                 type="submit"
                 className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import { useTranslation } from "react-i18next";
 
 function Socioeconomic() {
   const [cleanWaterAccess, setCleanWaterAccess] = useState(""); // state variable for currentEmployment
   const [electricityAccess, setElectricityAccess] = useState(""); // state variable for previousEmployment
   const [housingType, setHousingType] = useState(""); // state variable for jobTraining
   const [transportationAccess, setTransportationAccess] = useState(""); // state variable for workNature
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
@@ -59,7 +61,7 @@ function Socioeconomic() {
         {/* Panel body */}
         <div className="p-6 space-y-6">
           <h2 className="text-2xl text-slate-800 font-bold mb-5">
-            Socioeconomic Status
+            {t("SocioeconomicStatus")}
           </h2>
 
           {/* section 1*/}
@@ -72,7 +74,7 @@ function Socioeconomic() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="CleanWaterAccess"
                 >
-                  Do you have access to clean water?
+                  {t("CleanWater")}
                 </label>
                 <select
                   id="CleanWaterAccess"
@@ -80,9 +82,9 @@ function Socioeconomic() {
                   value={cleanWaterAccess}
                   onChange={(e) => setCleanWaterAccess(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("No")}</option>
                 </select>
               </div>
 
@@ -92,7 +94,7 @@ function Socioeconomic() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="ElectricityAccess"
                 >
-                  Do you have access to electricity?
+                  {t("ElectricityAccess")}
                 </label>
                 <select
                   id="ElectricityAccess"
@@ -100,9 +102,9 @@ function Socioeconomic() {
                   value={electricityAccess}
                   onChange={(e) => setElectricityAccess(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("No")}</option>
                 </select>
               </div>
 
@@ -112,7 +114,7 @@ function Socioeconomic() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="HousingType"
                 >
-                  What type of House do you live in?
+                  {t("HouseType")}
                 </label>
                 <select
                   id="HousingType"
@@ -120,10 +122,10 @@ function Socioeconomic() {
                   value={housingType}
                   onChange={(e) => setHousingType(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="kutcha">Kutcha</option>
-                  <option value="semipucca">Semi-Pucca</option>
-                  <option value="pucca">Pucca</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="kutcha">{t("Kutcha")}</option>
+                  <option value="semipucca">{t("SemiPucca")}</option>
+                  <option value="pucca">{t("Pucca")}</option>
                 </select>
               </div>
             </div>
@@ -137,7 +139,7 @@ function Socioeconomic() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="TransportationAccess"
                 >
-                  What type of transportation do you have access to?
+                  {t("TransportationAccess")}
                 </label>
                 <select
                   id="TransportationAccess"
@@ -145,10 +147,10 @@ function Socioeconomic() {
                   value={transportationAccess}
                   onChange={(e) => setTransportationAccess(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="public">Public</option>
-                  <option value="private">Private</option>
-                  <option value="none">None</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="public">{t("Public")}</option>
+                  <option value="private">{t("Private")}</option>
+                  <option value="none">{t("None")}</option>
                 </select>
               </div>
             </div>
@@ -164,7 +166,7 @@ function Socioeconomic() {
                 type="submit"
                 className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>

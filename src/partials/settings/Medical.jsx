@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import { useTranslation } from "react-i18next";
 
 function MedicalStatus() {
   const [hospitalizationRecords, setHospitalizationRecords] = useState(""); // state variable for hospitalizationRecords
@@ -9,7 +10,8 @@ function MedicalStatus() {
   const [allergies, setAllergies] = useState(""); // state variable allergies
   const [vaccinationRecords, setVaccinationRecords] = useState(""); // state variable vaccinationRecords
   const [healthInsurance, setHealthInsurance] = useState(""); // state variable healthInsurance
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
@@ -66,7 +68,7 @@ function MedicalStatus() {
         {/* Panel body */}
         <div className="p-6 space-y-6">
           <h2 className="text-2xl text-slate-800 font-bold mb-5">
-            Medical Status
+            {t("MedicalStatus")}
           </h2>
 
           {/* section 1  - Communication */}
@@ -79,7 +81,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="hospitalizationRecords"
                 >
-                  Hospitalization Records
+                  {t("HospitalizationRecords")}
                 </label>
 
                 <textarea
@@ -96,7 +98,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="chronicIllnesses"
                 >
-                  Chronic illnesses
+                  {t("Chronicillnesses")}
                 </label>
                 <textarea
                   id="chronicIllnesses"
@@ -113,7 +115,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="currentMedications"
                 >
-                  Current Medications
+                  {t("CurrentMedications")}
                 </label>
                 <textarea
                   id="currentMedications"
@@ -135,7 +137,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="bloodGroup"
                 >
-                  Blood Group
+                  {t("BloodGroup")}
                 </label>
                 <select
                   id="bloodGroup"
@@ -144,15 +146,15 @@ function MedicalStatus() {
                   value={bloodGroup}
                   onChange={(e) => setBloodGroup(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="A+">A+</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B-">B-</option>
-                  <option value="AB+">AB+</option>
-                  <option value="AB-">AB-</option>
-                  <option value="O+">O+</option>
-                  <option value="O-">O-</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="A+">{t("Apos")}</option>
+                  <option value="A-">{t("Aneg")}</option>
+                  <option value="B+">{t("Bpos")}</option>
+                  <option value="B-">{t("Bneg")}</option>
+                  <option value="AB+">{t("ABpos")}</option>
+                  <option value="AB-">{t("ABneg")}</option>
+                  <option value="O+">{t("Opos")}</option>
+                  <option value="O-">{t("Oneg")}</option>
                 </select>
                 {/* your other fields go here */}
               </div>
@@ -163,7 +165,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="allergies"
                 >
-                  Allergies
+                  {t("Allergies")}
                 </label>
                 <select
                   id="allergies"
@@ -172,9 +174,9 @@ function MedicalStatus() {
                   value={allergies}
                   onChange={(e) => setAllergies(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">None</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("None")}</option>
                 </select>
                 {/* your other fields go here */}
               </div>
@@ -184,7 +186,7 @@ function MedicalStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="vaccinationRecords"
                 >
-                  Health Insurance
+                  {t("HealthInsurance")}
                 </label>
                 <select
                   id="healthInsurance"
@@ -193,9 +195,9 @@ function MedicalStatus() {
                   value={healthInsurance}
                   onChange={(e) => setHealthInsurance(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">None</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("None")}</option>
                 </select>
                 {/* your other fields go here */}
               </div>
@@ -211,7 +213,7 @@ function MedicalStatus() {
                 className="block text-sm font-medium mb-1"
                 htmlFor="vaccinationRecords"
               >
-                Vaccination Records
+                {t("VaccinationRecords")}
               </label>
               <textarea
                 id="vaccinationRecords"
@@ -233,7 +235,7 @@ function MedicalStatus() {
                 type="submit"
                 className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>

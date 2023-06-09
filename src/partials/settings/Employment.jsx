@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import { useTranslation } from "react-i18next";
 
 function Employment() {
   const [currentEmployment, setCurrentEmployment] = useState(""); // state variable for currentEmployment
@@ -8,7 +9,8 @@ function Employment() {
   const [workNature, setWorkNature] = useState(""); // state variable for workNature
   const [workIndustry, setWorkIndustry] = useState(""); // state variable for workExperience
   const [openForEmployment, setOpenForEmployment] = useState(""); // state variable for openForEmployment
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
@@ -61,7 +63,7 @@ function Employment() {
         {/* Panel body */}
         <div className="p-6 space-y-6">
           <h2 className="text-2xl text-slate-800 font-bold mb-5">
-            Employment Status
+            {t("EmploymentStatus")}
           </h2>
 
           {/* section 1*/}
@@ -74,7 +76,7 @@ function Employment() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="CurrentEmployment"
                 >
-                  Current Employment Status
+                  {t("CurrentEmploymentStatus")}
                 </label>
                 <select
                   id="CurrentEmployment"
@@ -82,11 +84,11 @@ function Employment() {
                   value={currentEmployment}
                   onChange={(e) => setCurrentEmployment(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="employed">Employed</option>
-                  <option value="unemployed">Unemployed</option>
-                  <option value="retired">Retired</option>
-                  <option value="student">Student</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="employed">{t("Employed")}</option>
+                  <option value="unemployed">{t("Unemployed")}</option>
+                  <option value="retired">{t("Retired")}</option>
+                  <option value="student">{t("Student")}</option>
                 </select>
               </div>
 
@@ -96,7 +98,7 @@ function Employment() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="WorkNature"
                 >
-                  Work nature
+                  {t("Worknature")}
                 </label>
                 <select
                   id="WorkNature"
@@ -104,10 +106,10 @@ function Employment() {
                   value={workNature}
                   onChange={(e) => setWorkNature(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="permanent">Permanent</option>
-                  <option value="contract">Contract</option>
-                  <option value="casual">Casual</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="permanent">{t("Permanent")}</option>
+                  <option value="contract">{t("Contract")}</option>
+                  <option value="casual">{t("Casual")}</option>
                 </select>
               </div>
 
@@ -117,7 +119,7 @@ function Employment() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="WorkIndustry"
                 >
-                  Industry of Work
+                  {t("IndustryofWork")}
                 </label>
                 <select
                   id="WorkIndustry"
@@ -125,11 +127,11 @@ function Employment() {
                   value={workIndustry}
                   onChange={(e) => setWorkIndustry(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="agriculture">Agriculture</option>
-                  <option value="manufacturing">Manufacturing</option>
-                  <option value="construction">Construction</option>
-                  <option value="other">Other</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="agriculture">{t("Agriculture")}</option>
+                  <option value="manufacturing">{t("Manufacturing")}</option>
+                  <option value="construction">{t("Construction")}</option>
+                  <option value="other">{t("Other")}</option>
                 </select>
               </div>
             </div>
@@ -143,7 +145,7 @@ function Employment() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="PreviousEmployment"
                 >
-                  Previous Employment (if any)
+                  {t("PreviousEmployment")}
                 </label>
                 <input
                   id="PreviousEmployment"
@@ -160,7 +162,7 @@ function Employment() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="OpenForEmployment"
                 >
-                  Open For Employment?
+                  {t("OpenForEmployment")}
                 </label>
                 <select
                   id="OpenForEmployment"
@@ -168,9 +170,9 @@ function Employment() {
                   value={openForEmployment}
                   onChange={(e) => setOpenForEmployment(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("No")}</option>
                 </select>
               </div>
             </div>
@@ -186,7 +188,7 @@ function Employment() {
                 type="submit"
                 className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>
