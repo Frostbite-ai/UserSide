@@ -85,10 +85,10 @@ function Employment() {
                   onChange={(e) => setCurrentEmployment(e.target.value)}
                 >
                   <option value="">{t("Select")}</option>
-                  <option value="employed">{t("Employed")}</option>
-                  <option value="unemployed">{t("Unemployed")}</option>
-                  <option value="retired">{t("Retired")}</option>
-                  <option value="student">{t("Student")}</option>
+                  <option value="Employed">{t("Employed")}</option>
+                  <option value="Unemployed">{t("Unemployed")}</option>
+                  <option value="Retired">{t("Retired")}</option>
+                  <option value="Student">{t("Student")}</option>
                 </select>
               </div>
 
@@ -107,9 +107,9 @@ function Employment() {
                   onChange={(e) => setWorkNature(e.target.value)}
                 >
                   <option value="">{t("Select")}</option>
-                  <option value="permanent">{t("Permanent")}</option>
-                  <option value="contract">{t("Contract")}</option>
-                  <option value="casual">{t("Casual")}</option>
+                  <option value="Permanent">{t("Permanent")}</option>
+                  <option value="Contract">{t("Contract")}</option>
+                  <option value="Casual">{t("Casual")}</option>
                 </select>
               </div>
 
@@ -128,10 +128,10 @@ function Employment() {
                   onChange={(e) => setWorkIndustry(e.target.value)}
                 >
                   <option value="">{t("Select")}</option>
-                  <option value="agriculture">{t("Agriculture")}</option>
-                  <option value="manufacturing">{t("Manufacturing")}</option>
-                  <option value="construction">{t("Construction")}</option>
-                  <option value="other">{t("Other")}</option>
+                  <option value="Agriculture">{t("Agriculture")}</option>
+                  <option value="Manufacturing">{t("Manufacturing")}</option>
+                  <option value="Construction">{t("Construction")}</option>
+                  <option value="Other">{t("Other")}</option>
                 </select>
               </div>
             </div>
@@ -171,8 +171,8 @@ function Employment() {
                   onChange={(e) => setOpenForEmployment(e.target.value)}
                 >
                   <option value="">{t("Select")}</option>
-                  <option value="yes">{t("Yes")}</option>
-                  <option value="no">{t("No")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
             </div>
