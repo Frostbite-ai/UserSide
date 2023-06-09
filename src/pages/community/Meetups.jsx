@@ -8,6 +8,7 @@ import PaginationNumeric from "../../components/PaginationNumeric";
 // import { eventsList } from "./data";
 // import EventsList from "./Eventlist/index";
 import EventsPosts from "./EventsPosts";
+import DialogflowMessenger from "../../utils/DialogflowMessenger";
 
 function Meetups() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,7 +17,7 @@ function Meetups() {
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
+      <DialogflowMessenger />
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
         {/*  Site header */}

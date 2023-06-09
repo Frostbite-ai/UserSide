@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DialogflowMessenger from "../utils/DialogflowMessenger";
 
 import AuthImage from "../images/auth-image.webp";
 import AuthDecoration from "../images/auth-decoration.png";
@@ -7,6 +8,7 @@ import TinyMiraclesLogo from "../images/tinymiracles.webp";
 function ResetPassword() {
   return (
     <main className="bg-white">
+      <DialogflowMessenger />
       <div className="relative md:flex">
         {/* Content */}
         <div className="md:w-1/2">

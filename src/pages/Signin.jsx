@@ -5,6 +5,7 @@ import axios from "axios";
 import TinyMiraclesLogo from "../images/tinymiracles.webp";
 import AuthImage from "../images/auth-image.webp";
 import { useAuth } from "../hooks/AuthContext";
+import DialogflowMessenger from "../utils/DialogflowMessenger";
 
 const Signin = () => {
   const { t } = useTranslation();
@@ -50,6 +51,7 @@ const Signin = () => {
 
   return (
     <main className="bg-white">
+      <DialogflowMessenger />
       <div className="relative md:flex">
         <div className="md:w-1/2">
           <div className="flex flex-col h-full min-h-screen after:flex-1">

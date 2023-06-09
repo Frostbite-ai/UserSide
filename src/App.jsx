@@ -5,7 +5,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 // import withProtection from "./hooks/ProtectedRoute";
 import { AuthProvider } from "./hooks/AuthContext";
 import ProtectedRoute from "./hooks/ProtectedRoute";
-
 import "./css/style.css";
 import { useRoutes } from "react-router-dom";
 // import ProtectedRoute from "./hooks/ProtectedRoute";
@@ -114,7 +113,7 @@ function App() {
           {/* <Route path="/settings/plans" element={<Plans />} /> */}
           {/* <Route path="/settings/billing" element={<Billing />} /> */}
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Meetups />} />
           <Route path="/meetups" element={<Meetups />} />
           <Route path="/meetups/post" element={<MeetupsPost />} />
           <Route path="/settings" element={<Account />} />

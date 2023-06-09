@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import EventDisplay from "./DateFormat";
 import axios from "axios";
+import DialogflowMessenger from "../../utils/DialogflowMessenger";
 
 import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
@@ -65,6 +66,7 @@ export default function EventPost() {
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
         {/*  Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <DialogflowMessenger />
 
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full">

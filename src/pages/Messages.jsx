@@ -4,7 +4,7 @@ import Sidebar from "../partials/Sidebar";
 import Header from "../partials/Header";
 import MessagesSidebar from "../partials/messages/MessagesSidebar";
 import MessagesBody from "../partials/messages/MessagesBody";
-
+import DialogflowMessenger from "../utils/DialogflowMessenger";
 function Messages() {
   const contentArea = useRef(null);
 
@@ -19,7 +19,7 @@ function Messages() {
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
+      <DialogflowMessenger />
       {/* Content area */}
       <div
         className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden"

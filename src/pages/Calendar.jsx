@@ -4,7 +4,7 @@ import axios from "axios";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useNavigate } from "react-router-dom";
-
+import DialogflowMessenger from "../utils/DialogflowMessenger";
 import Sidebar from "../partials/Sidebar";
 import Header from "../partials/Header";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -70,6 +70,7 @@ function MyCalendar() {
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <DialogflowMessenger />
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
