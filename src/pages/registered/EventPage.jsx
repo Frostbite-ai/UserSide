@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import EventDisplay from "./DateFormat";
 import axios from "axios";
+import { Pie } from "react-chartjs-2";
 
 import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
@@ -10,11 +11,14 @@ import Header from "../../partials/Header";
 // import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
 
-export default function EventPost() {
+export default function RegisteredEventPost() {
   const [postInfo, setPostInfo] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { id } = useParams();
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isAttended, setIsAttended] = useState(false);
+  const attended = postInfo ? postInfo.attended.length : 0;
+  const registered = postInfo ? postInfo.registered.length : 0;
+  const didNotAttend = registered - attended;
 
   const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now reaplce it by userid from token
 
@@ -25,12 +29,11 @@ export default function EventPost() {
       });
     });
   }, []);
-
-  const registerForEvent = async () => {
+  const attendEvent = async () => {
     if (postInfo) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/user/registerForAnEvent",
+          "http://15.206.18.143:3000/user/attendAnEvent",
           {
             eventId: postInfo._id,
             userId: userID,
@@ -38,15 +41,19 @@ export default function EventPost() {
         );
 
         if (response.data.message === "Success !!") {
-          setIsRegistered(true);
+          setIsAttended(true);
         } else {
           alert("Error: " + response.data.message);
         }
       } catch (error) {
         console.error("An error occurred:", error);
-        if (error.response && error.response.data.message === "repeat") {
-          alert("You are already registered for this event.");
-          setIsRegistered(true);
+        if (
+          error.response &&
+          error.response.data.message ===
+            "User is already registered for this event."
+        ) {
+          alert("You have already attended this event.");
+          setIsAttended(true);
         } else {
           alert("An error occurred. Please try again.");
         }
@@ -75,7 +82,7 @@ export default function EventPost() {
                 <div className="mb-6">
                   <Link
                     className="btn-sm px-3 bg-white border-slate-200 hover:border-slate-300 text-slate-600"
-                    to="/community/meetups"
+                    to="/registered"
                   >
                     <svg
                       className="fill-current text-slate-400 mr-2"
@@ -142,34 +149,61 @@ export default function EventPost() {
                 {/* 1st block */}
                 <div className="bg-white p-5 shadow-lg rounded-sm border border-slate-200 lg:w-72 xl:w-80">
                   <div className="space-y-2">
-                    <button
-                      className={`btn w-full ${
-                        isRegistered
-                          ? "bg-green-500 hover:bg-green-600"
-                          : "bg-indigo-500 hover:bg-indigo-600"
-                      } text-white`}
-                      onClick={registerForEvent}
-                      disabled={!postInfo}
-                    >
-                      <svg
-                        className="w-4 h-4 fill-current shrink-0"
-                        viewBox="0 0 16 16"
+                    {isAttended ? (
+                      <button
+                        className="btn w-full bg-green-500 hover:bg-green-600 text-white"
+                        disabled
                       >
-                        <path d="m2.457 8.516.969-.99 2.516 2.481 5.324-5.304.985.989-6.309 6.284z" />
-                      </svg>
-                      <span className="ml-1">
-                        {isRegistered ? "Registered" : "Register"}
-                      </span>
-                    </button>
+                        <svg
+                          className="w-4 h-4 fill-current shrink-0"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="m2.457 8.516.969-.99 2.516 2.481 5.324-5.304.985.989-6.309 6.284z" />
+                        </svg>
+                        <span className="ml-1">Attended</span>
+                      </button>
+                    ) : (
+                      <button
+                        className="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white"
+                        onClick={attendEvent}
+                        disabled={!postInfo}
+                      >
+                        <svg
+                          className="w-4 h-4 fill-current shrink-0"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="m2.457 8.516.969-.99 2.516 2.481 5.324-5.304.985.989-6.309 6.284z" />
+                        </svg>
+                        <span className="ml-1">Attending</span>
+                      </button>
+                    )}
                   </div>
                 </div>
 
-                {/* 2nd block */}
-
                 <div className="flex justify-between space-x-1 mb-0 bg-white p-5 shadow-lg rounded-sm border border-slate-200 text-sm text-slate-800 font-semibold lg:w-72 xl:w-80">
                   <div className="">
-                    Registered Users ({postInfo.registered.length})
+                    Registered ({postInfo.registered.length})
                   </div>
+                  <div className="">Attended ({postInfo.attended.length})</div>
+                </div>
+
+                <div className="flex justify-between space-x-1 mb-0 bg-white p-5 shadow-lg rounded-sm border border-slate-200 text-sm text-slate-800 font-semibold lg:w-72 xl:w-80">
+                  {postInfo && (
+                    <Pie
+                      data={{
+                        labels: ["Attended", "Did not Attend"],
+                        datasets: [
+                          {
+                            data: [attended, didNotAttend],
+                            backgroundColor: [
+                              "rgba(75, 192, 192, 1)", // darker cyan
+                              "rgba(255, 99, 132, 1)", // darker pink
+                            ],
+                          },
+                        ],
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             </div>

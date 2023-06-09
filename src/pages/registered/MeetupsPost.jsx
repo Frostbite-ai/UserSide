@@ -28,7 +28,7 @@ function MeetupsPosts({
         {/* Image */}
         <Link
           className="relative block w-24 sm:w-56 xl:sidebar-expanded:w-40 2xl:sidebar-expanded:w-56 shrink-0"
-          to={`/event/${_id}`}
+          to={`/registered/${_id}`}
         >
           <img
             className="absolute object-cover object-center w-full h-full"
@@ -48,7 +48,7 @@ function MeetupsPosts({
               eventDuration={eventDuration}
             />
           </div>
-          <Link className="inline-flex mb-2" to={`/event/${_id}`}>
+          <Link className="inline-flex mb-2" to={`/registered/${_id}`}>
             {/* event name */}
             <h3 className="text-lg font-bold text-slate-800">{eventName}</h3>
           </Link>

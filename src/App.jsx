@@ -39,6 +39,8 @@ import EventPost from "./pages/community/EventPage";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
+import RegisteredEventsList from "./pages/registered/Events";
+import RegisteredEventPost from "./pages/registered/EventPage";
 
 // import Plans from './pages/settings/Plans';
 
@@ -142,6 +144,8 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/registered" element={<RegisteredEventsList />} />
+          <Route path="/registered/:id" element={<RegisteredEventPost />} />
 
           {/* 
       <Route path="/community/profile" element={<Profile />} />

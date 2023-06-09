@@ -265,7 +265,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/community/meetups"
+                  to="/registered"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("registered")
                       ? "hover:text-slate-200"
