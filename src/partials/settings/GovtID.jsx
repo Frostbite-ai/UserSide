@@ -80,9 +80,9 @@ function GovtID() {
                   value={rationcard}
                   onChange={(e) => setRationCard(e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
 
@@ -100,9 +100,9 @@ function GovtID() {
                   value={aadharcard}
                   onChange={(e) => setAadharCard(e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
 
@@ -120,9 +120,9 @@ function GovtID() {
                   value={pancard}
                   onChange={(e) => setPancard(e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
             </div>
@@ -145,9 +145,9 @@ function GovtID() {
                   value={esharamcard}
                   onChange={(e) => setEsharamCard(e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
 
@@ -165,9 +165,9 @@ function GovtID() {
                   value={voterID}
                   onChange={(e) => setVoterID(e.target.value)}
                 >
-                  <option value="">Select...</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="Yes">{t("Yes")}</option>
+                  <option value="No">{t("No")}</option>
                 </select>
               </div>
             </div>

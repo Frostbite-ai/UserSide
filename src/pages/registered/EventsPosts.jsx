@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MeetupsPost from "./MeetupsPost";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 export default function EventsPosts() {
   const [posts, setPosts] = useState([]);
   const [attendedPosts, setAttendedPosts] = useState([]);
   const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60";
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -50,10 +54,10 @@ export default function EventsPosts() {
   return (
     <>
       <div className="text-sm text-slate-500 italic mb-1">
-        Total events: {posts.length}
+        {t("TotalEvents")}: {posts.length}
       </div>
       <h1 className="text-xl md:text-2xl mb-1 text-slate-800 font-bold">
-        Yet to Attend
+        {t("YettoAttend")}
       </h1>
       <div className="grid sm:grid-cols-2 gap-6">
         {posts.map((post) => (
@@ -62,7 +66,7 @@ export default function EventsPosts() {
       </div>
 
       <h1 className="text-xl md:text-2xl mb-1 text-slate-800 mt-4 font-bold">
-        Attended Events
+        {t("AttendedEvents")}
       </h1>
 
       <div className="grid sm:grid-cols-2 gap-6">
