@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MeetupsPost from "./MeetupsPost";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function EventsPosts() {
   const [posts, setPosts] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [pastEvents, setPastEvents] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -69,10 +72,10 @@ export default function EventsPosts() {
       </div>
 
       <div className="text-sm text-slate-500 italic mb-1">
-        Total events: {posts.length}
+        {t("TotalEvents")}: {posts.length}
       </div>
       <h1 className="text-xl md:text-2xl mb-1 text-slate-800 font-bold">
-        Future Events
+        {t("FutureEvents")}
       </h1>
       <div className="grid sm:grid-cols-2 gap-6">
         {upcomingEvents
@@ -84,7 +87,7 @@ export default function EventsPosts() {
           ))}
       </div>
       <h1 className="text-xl md:text-2xl text-slate-800 mt-6 mb-1 font-bold">
-        Past Events
+        {t("PastEvents")}
       </h1>
 
       <div className="grid sm:grid-cols-2 gap-6">
