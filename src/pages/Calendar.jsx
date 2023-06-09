@@ -38,7 +38,7 @@ function MyCalendar() {
           end: new Date(event.eventStartTime),
           id: event._id, // Ensure this field exists in your API response
           // Use the category to determine the color of the event
-          color: categoryColors[event.category],
+          category: event.category,
         }));
         setEvents(fetchedEvents);
       })
@@ -50,7 +50,22 @@ function MyCalendar() {
   const handleEventSelect = (event) => {
     navigate(`/event/${event.id}`);
   };
-
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    var backgroundColor = categoryColors[event.category];
+    var style = {
+      backgroundColor: backgroundColor,
+      borderRadius: "5px", // rounded corners
+      opacity: 0.8,
+      color: "white", // change text color to white for better contrast
+      border: "0px",
+      display: "block",
+      fontWeight: "bold", // bold text
+      padding: "5px", // space around the text
+    };
+    return {
+      style: style,
+    };
+  };
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -70,6 +85,7 @@ function MyCalendar() {
               events={events}
               style={{ height: "100%" }}
               onSelectEvent={handleEventSelect}
+              eventPropGetter={eventStyleGetter}
             />
           </div>
         </main>
