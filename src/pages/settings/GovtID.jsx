@@ -4,9 +4,12 @@ import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
 import SettingsSidebar from "../../partials/settings/SettingsSidebar";
 import GovtID from "../../partials/settings/GovtID";
+import { useTranslation } from "react-i18next";
 
 function GovtId() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -24,7 +27,7 @@ function GovtId() {
             <div className="mb-8">
               {/* Title */}
               <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">
-                My Profile ✨
+                {t("MyProfile")}
               </h1>
             </div>
 

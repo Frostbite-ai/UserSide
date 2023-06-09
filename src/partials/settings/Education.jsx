@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import { useTranslation } from "react-i18next";
 
 function EducationStatus() {
   const [currentEducationLevel, setCurrentEducationLevel] = useState(""); // state variable for currentEmployment
   const [ongoingEducation, setOngoingEducation] = useState(""); // state variable for previousEmployment
   const [furtherStudyInterest, setFurtherStudyInterest] = useState(""); // state variable for jobTraining
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
 
   useEffect(() => {
@@ -56,7 +58,7 @@ function EducationStatus() {
         {/* Panel body */}
         <div className="p-6 space-y-6">
           <h2 className="text-2xl text-slate-800 font-bold mb-5">
-            Education Status
+            {t("EducationStatus")}
           </h2>
           {/* section 1*/}
           <section>
@@ -67,7 +69,7 @@ function EducationStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="CurrentEducationLevel"
                 >
-                  Education level
+                  {t("Educationlevel")}
                 </label>
                 <select
                   id="CurrentEducationLevel"
@@ -75,14 +77,14 @@ function EducationStatus() {
                   value={currentEducationLevel}
                   onChange={(e) => setCurrentEducationLevel(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="noEducation">No Education</option>
-                  <option value="primarySchool">Primary School</option>
-                  <option value="middleSchool">Middle School</option>
-                  <option value="10th">10th</option>
-                  <option value="12th">12th</option>
-                  <option value="diploma">Diploma</option>
-                  <option value="graduate">Graduate</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="noEducation">{t("NoEducation")}</option>
+                  <option value="primarySchool">{t("PrimarySchool")}</option>
+                  <option value="middleSchool">{t("MiddleSchool")}</option>
+                  <option value="10th">{t("10th")}</option>
+                  <option value="12th">{t("12th")}</option>
+                  <option value="diploma">{t("Diploma")}</option>
+                  <option value="graduate">{t("Graduate")}</option>
                 </select>
               </div>
 
@@ -92,7 +94,7 @@ function EducationStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="OngoingEducation"
                 >
-                  Ongoing Education
+                  {t("OngoingEducation")}
                 </label>
                 <select
                   id="OngoingEducation"
@@ -100,9 +102,9 @@ function EducationStatus() {
                   value={ongoingEducation}
                   onChange={(e) => setOngoingEducation(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("No")}</option>
                 </select>
               </div>
 
@@ -112,7 +114,7 @@ function EducationStatus() {
                   className="block text-sm font-medium mb-1"
                   htmlFor="FurtherStudyInterest"
                 >
-                  Further Study Interest?
+                  {t("FurtherStudyInterest")}
                 </label>
                 <select
                   id="FurtherStudyInterest"
@@ -120,9 +122,9 @@ function EducationStatus() {
                   value={furtherStudyInterest}
                   onChange={(e) => setFurtherStudyInterest(e.target.value)}
                 >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                  <option value="">{t("Select")}</option>
+                  <option value="yes">{t("Yes")}</option>
+                  <option value="no">{t("No")}</option>
                 </select>
               </div>
             </div>
@@ -138,7 +140,7 @@ function EducationStatus() {
                 type="submit"
                 className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>
