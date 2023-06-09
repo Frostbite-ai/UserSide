@@ -3,6 +3,7 @@ import axios from "axios";
 import MeetupsPost from "./MeetupsPost";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import WelcomeBanner from "./WelcomeBanner";
 
 export default function EventsPosts() {
   const [posts, setPosts] = useState([]);
@@ -53,6 +54,7 @@ export default function EventsPosts() {
 
   return (
     <>
+      <WelcomeBanner />
       <div className="sm:flex sm:justify-between sm:items-center mb-2">
         {/* Filters */}
         <div className="mb-0">

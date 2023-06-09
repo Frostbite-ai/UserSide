@@ -20,7 +20,7 @@ const resources = {
       Dashboard: "Dashboard",
       AllEvents: "All Events",
       RegisteredEvents: "Registered Events",
-      Messages: "Messages",
+      Messages: "Contact",
       Calendar: "Calendar",
       Campaigns: "Campaigns",
       MyProfile: "My Profile ✨",

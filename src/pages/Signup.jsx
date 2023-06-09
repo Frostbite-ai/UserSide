@@ -128,8 +128,6 @@ function Signup() {
                       required
                     >
                       <option value="">Select</option>
-                      <option value="">Select</option>
-                      <option value="">Select</option>
                       <option value="Maratha">Maratha</option>
                       <option value="Brahmin">Brahmin</option>
                       <option value="Kunbi">Kunbi</option>

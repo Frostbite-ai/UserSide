@@ -2,18 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 
 import Sidebar from "../partials/Sidebar";
 import Header from "../partials/Header";
-import MessagesSidebar from "../partials/messages/MessagesSidebar";
-import MessagesBody from "../partials/messages/MessagesBody";
 import DialogflowMessenger from "../utils/DialogflowMessenger";
+
 function Messages() {
   const contentArea = useRef(null);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [msgSidebarOpen, setMsgSidebarOpen] = useState(true);
-
-  useEffect(() => {
-    contentArea.current.scrollTop = 99999999;
-  }, [msgSidebarOpen]); // automatically scroll the chat and make the most recent message visible
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -30,20 +24,16 @@ function Messages() {
 
         <main>
           <div className="relative flex">
-            {/* Messages sidebar */}
-            <MessagesSidebar
-              msgSidebarOpen={msgSidebarOpen}
-              setMsgSidebarOpen={setMsgSidebarOpen}
+            <iframe
+              className="airtable-embed airtable-dynamic-height"
+              src="https://airtable.com/embed/shrhtcfiJwO2PjCLf?backgroundColor=blue"
+              frameborder="0"
+              onmousewheel=""
+              width="100%"
+              height="879"
+              style={{ background: "transparent", border: "1px solid #ccc" }}
+              title="Airtable Form"
             />
-
-            {/* Messages body */}
-            <div
-              className={`grow flex flex-col md:translate-x-0 transition-transform duration-300 ease-in-out ${
-                msgSidebarOpen ? "translate-x-1/3" : "translate-x-0"
-              }`}
-            >
-              <MessagesBody />
-            </div>
           </div>
         </main>
       </div>

@@ -117,7 +117,7 @@ function App() {
           <Route path="/meetups" element={<Meetups />} />
           <Route path="/meetups/post" element={<MeetupsPost />} />
           <Route path="/settings" element={<Account />} />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="/contact" element={<Messages />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/tasks/list" element={<TasksList />} />
           <Route path="/utility/faqs" element={<Faqs />} />
