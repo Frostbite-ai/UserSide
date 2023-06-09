@@ -61,11 +61,10 @@ function GovtID() {
             Government IDs
           </h2>
 
-          {/* section 2  - Communication */}
-
+          {/* section 1 */}
           <section>
             <div className="sm:flex sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
-              {/* Ration card,*/}
+              {/* Ration Card */}
               <div className="sm:w-1/3">
                 <label
                   className="block text-sm font-medium mb-1"
@@ -73,16 +72,19 @@ function GovtID() {
                 >
                   Ration Card
                 </label>
-                <input
+                <select
                   id="RationCard"
                   className="form-input w-full"
-                  type="text"
                   value={rationcard}
                   onChange={(e) => setRationCard(e.target.value)}
-                />
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
 
-              {/* Aadhar Card,*/}
+              {/* Aadhar Card */}
               <div className="sm:w-1/3">
                 <label
                   className="block text-sm font-medium mb-1"
@@ -90,16 +92,19 @@ function GovtID() {
                 >
                   Aadhar Card
                 </label>
-                <input
+                <select
                   id="Aadharcard"
                   className="form-input w-full"
-                  type="text"
                   value={aadharcard}
                   onChange={(e) => setAadharCard(e.target.value)}
-                />
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
 
-              {/* Pan card,*/}
+              {/* Pan card */}
               <div className="sm:w-1/3">
                 <label
                   className="block text-sm font-medium mb-1"
@@ -107,21 +112,24 @@ function GovtID() {
                 >
                   Pan card
                 </label>
-                <input
+                <select
                   id="PanCard"
                   className="form-input w-full"
-                  type="text"
                   value={pancard}
                   onChange={(e) => setPancard(e.target.value)}
-                />
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
             </div>
           </section>
 
-          {/* section 2 esharamCard voted id         */}
+          {/* section 2 */}
           <section>
             <div className="sm:flex sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-2">
-              {/* e-Sharam Card,*/}
+              {/* e-Sharam Card */}
               <div className="sm:w-[32%]">
                 <label
                   className="block text-sm font-medium mb-1"
@@ -129,17 +137,19 @@ function GovtID() {
                 >
                   e-Sharam Card
                 </label>
-                <input
+                <select
                   id="EsharamCard"
                   className="form-input w-full"
-                  type="text"
                   value={esharamcard}
                   onChange={(e) => setEsharamCard(e.target.value)}
-                />
-                {/* your other fields go here */}
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
 
-              {/* Voter ID Card,*/}
+              {/* Voter ID Card */}
               <div className="sm:w-[32.2%]">
                 <label
                   className="block text-sm font-medium mb-1"
@@ -147,14 +157,16 @@ function GovtID() {
                 >
                   Voter ID Card
                 </label>
-                <input
+                <select
                   id="VoterID"
                   className="form-input w-full"
-                  type="text"
                   value={voterID}
                   onChange={(e) => setVoterID(e.target.value)}
-                />
-                {/* your other fields go here */}
+                >
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
             </div>
           </section>

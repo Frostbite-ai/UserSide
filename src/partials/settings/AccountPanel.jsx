@@ -29,18 +29,12 @@ function AccountPanel() {
 
         setAge(response.data.basicDetails.age);
         setGender(response.data.basicDetails.gender);
-        console.log(response.data.basicDetails.gender);
         setCommunityStatus(response.data.basicDetails.Community);
         setPhoneNumber(response.data.basicDetails.PhoneNumber);
-        console.log(response.data.basicDetails.PhoneNumber);
         setAddress(response.data.basicDetails.address.address1);
-        console.log(response.data.basicDetails.address.address1);
         setCity(response.data.basicDetails.address.city);
-        console.log(response.data.basicDetails.address.city);
         setState(response.data.basicDetails.address.state);
-        console.log(response.data.basicDetails.address.state);
         setZip(response.data.basicDetails.address.zip);
-        console.log(response.data.basicDetails.address.zip);
         setPrimaryLanguage(response.data.basicDetails.primaryLanguage);
         setKids(response.data.basicDetails.familyDetails.numOfChild);
         setDependents(response.data.basicDetails.familyDetails.dependents);
@@ -81,6 +75,7 @@ function AccountPanel() {
               dependents: dependents,
             },
             primaryLanguage: primaryLanguage,
+            gender: gender,
           },
         }
       );
@@ -158,9 +153,9 @@ function AccountPanel() {
                   required
                 >
                   <option value="">Select</option>
-                  <option value="female">Female</option>
-                  <option value="male">Male</option>
-                  <option value="other">Other</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -189,10 +184,22 @@ function AccountPanel() {
                   required
                 >
                   <option value="">Select</option>
-                  <option value="community_1">Community 1</option>
-                  <option value="community_2">Community 2</option>
-                  <option value="community_3">Community 3</option>
-                  <option value="community_4">Community 4</option>
+                  <option value="">Select</option>
+                  <option value="Maratha">Maratha</option>
+                  <option value="Brahmin">Brahmin</option>
+                  <option value="Kunbi">Kunbi</option>
+                  <option value="Dhangar">Dhangar</option>
+                  <option value="Chambhar">Chambhar</option>
+                  <option value="Mahadev Koli">Mahadev Koli</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Agri">Agri</option>
+                  <option value="Bhandari">Bhandari</option>
+                  <option value="Vanjari">Vanjari</option>
+                  <option value="Teli">Teli</option>
+                  <option value="Leva Patil">Leva Patil</option>
+                  <option value="Matang">Matang</option>
+                  <option value="Nhavi">Nhavi</option>
+                  <option value="Lingayat">Lingayat</option>
                 </select>
               </div>
 

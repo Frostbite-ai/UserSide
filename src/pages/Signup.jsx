@@ -76,6 +76,22 @@ function Signup() {
                   <div>
                     <label
                       className="block text-sm font-medium mb-1"
+                      htmlFor="name"
+                    >
+                      Full Name <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      className="form-input w-full"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-sm font-medium mb-1"
                       htmlFor="tel"
                     >
                       Phone Number <span className="text-rose-500">*</span>
@@ -98,22 +114,6 @@ function Signup() {
                   <div>
                     <label
                       className="block text-sm font-medium mb-1"
-                      htmlFor="name"
-                    >
-                      Full Name <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      id="name"
-                      className="form-input w-full"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="block text-sm font-medium mb-1"
                       htmlFor="communnity"
                     >
                       Community <span className="text-rose-500">*</span>
@@ -126,10 +126,23 @@ function Signup() {
                       required
                     >
                       <option value="">Select</option>
-                      <option value="community_1">Community 1</option>
-                      <option value="community_2">Community 2</option>
-                      <option value="community_3">Community 3</option>
-                      <option value="community_4">Community 4</option>
+                      <option value="">Select</option>
+                      <option value="">Select</option>
+                      <option value="Maratha">Maratha</option>
+                      <option value="Brahmin">Brahmin</option>
+                      <option value="Kunbi">Kunbi</option>
+                      <option value="Dhangar">Dhangar</option>
+                      <option value="Chambhar">Chambhar</option>
+                      <option value="Mahadev Koli">Mahadev Koli</option>
+                      <option value="Mali">Mali</option>
+                      <option value="Agri">Agri</option>
+                      <option value="Bhandari">Bhandari</option>
+                      <option value="Vanjari">Vanjari</option>
+                      <option value="Teli">Teli</option>
+                      <option value="Leva Patil">Leva Patil</option>
+                      <option value="Matang">Matang</option>
+                      <option value="Nhavi">Nhavi</option>
+                      <option value="Lingayat">Lingayat</option>
                     </select>
                   </div>
 
@@ -148,9 +161,9 @@ function Signup() {
                       required
                     >
                       <option value="">Select</option>
-                      <option value="female">Female</option>
-                      <option value="male">Male</option>
-                      <option value="other">Other</option>
+                      <option value="Female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
