@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function WelcomeBanner() {
   const [name, setName] = useState(""); // State to store the user's name
   const id = "fb4a5c31-2c40-4140-a73f-64abc7f2b8df"; // Replace with actual user id
   // useEffect hook runs when the component mounts
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -87,9 +90,9 @@ function WelcomeBanner() {
       {/* Content */}
       <div className="relative">
         <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">
-          Good afternoon, {name}. 👋
+          {t("Goodafternoon")}, {name}. 👋
         </h1>
-        <p>Here is what’s happening with your community today:</p>
+        <p>{t("bannerLine")}</p>
       </div>
     </div>
   );

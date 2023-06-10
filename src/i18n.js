@@ -25,6 +25,8 @@ const resources = {
       Campaigns: "Campaigns",
       MyProfile: "My Profile ✨",
       Pages: "Pages",
+      FAQ: "FAQ",
+      Tasks: "Tasks",
       //my profle
       BasicDetails: " Basic Details",
       GovernmentIDs: "Government IDs",
@@ -113,9 +115,13 @@ const resources = {
       //Events:
       AttendedEvents: "Attended Events",
       YettoAttend: "Yet to Attend",
-      FutureEvents: "Future Events",
+      FutureEvents: "Upcoming Events",
       PastEvents: "Past Events",
       TotalEvents: "Total events",
+
+      //Welcome Banner:
+      Goodafternoon: "Good Afternoon",
+      bannerLine: "Here is what’s happening with your community today:",
     },
   },
   hi: {
@@ -138,6 +144,8 @@ const resources = {
       Campaigns: "अभियान",
       MyProfile: "मेरी प्रोफ़ाइल",
       Pages: "पृष्ठों",
+      FAQ: "अक्सर पूछे जाने वाले प्रश्न",
+      Tasks: "कार्य",
       //my profle
       BasicDetails: "मूल विवरण",
       GovernmentIDs: "सरकारी आईडी",
@@ -226,9 +234,13 @@ const resources = {
       //Events:
       AttendedEvents: "कार्यक्रमों में भाग लिया",
       YettoAttend: "अभी भाग लेना बाकी है",
-      FutureEvents: "भविष्य में कार्यक्रम",
+      FutureEvents: "आगामी कार्यक्रम",
       PastEvents: "पिछले कार्यक्रम",
       TotalEvents: "कुल कार्यक्रम",
+
+      //Welcome Banner:
+      Goodafternoon: "नमस्कार",
+      bannerLine: "आज आपके कम्यूनिटी के साथ क्या होगा, वह यहाँ है :",
     },
   },
   mr: {
@@ -251,6 +263,8 @@ const resources = {
       Campaigns: "मोहिमा",
       MyProfile: "माझी प्रोफाईल",
       Pages: "पृष्ठे[संपादन]",
+      FAQ: "सामान्य प्रश्न",
+      Tasks: "कामे",
       //my profle
       BasicDetails: "मूलभूत तपशील",
       GovernmentIDs: "सरकारी आय.डी.",
@@ -340,9 +354,12 @@ const resources = {
       //Events:
       AttendedEvents: "कार्यक्रमांना हजेरी लावली",
       YettoAttend: "अजून उपस्थित राहणे बाकी आहे",
-      FutureEvents: "भविष्यातील कार्यक्रम",
+      FutureEvents: "आगामी कार्यक्रम",
       PastEvents: "भूतकाळातील कार्यक्रम",
       TotalEvents: "एकूण कार्यक्रम",
+      //Welcome Banner:
+      Goodafternoon: "शुभ दुपार",
+      bannerLine: "आज आपल्या समाजाचे काय होईल ते येथे आहे :",
     },
   },
 };
