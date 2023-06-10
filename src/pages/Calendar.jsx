@@ -70,7 +70,7 @@ function MyCalendar() {
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <DialogflowMessenger />
+      {/* <DialogflowMessenger /> */}
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -78,13 +78,21 @@ function MyCalendar() {
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main className=" p-10">
+          <div className="mb-8 sm:flex sm:justify-between sm:items-center">
+            {/* Left: Title */}
+            <div className="mb-4 sm:mb-0">
+              <h1 className="text-2xl font-bold md:text-3xl text-slate-800">
+                Event Calender
+              </h1>
+            </div>
+          </div>
           <div style={{ height: "500px" }}>
             <Calendar
               localizer={localizer}
               defaultDate={new Date()}
               defaultView="month"
               events={events}
-              style={{ height: "100%" }}
+              style={{ height: 600 }}
               onSelectEvent={handleEventSelect}
               eventPropGetter={eventStyleGetter}
             />

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Transition from "../utils/Transition";
 import { useAuth } from "../hooks/AuthContext";
@@ -9,11 +10,29 @@ import UserAvatar from "../images/user-avatar-32.png";
 
 function DropdownProfile({ align }) {
   const { setIsLoggedIn } = useAuth();
+  const id = "fb4a5c31-2c40-4140-a73f-64abc7f2b8df";
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [community, setCommunity] = useState("");
 
   const navigate = useNavigate();
   const { i18n } = useTranslation();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          `http://15.206.18.143:3000/user/user/${id}`
+        ); // Replace `${id}` with actual user id
+        setName(response.data.basicDetails.name);
+        setCommunity(response.data.basicDetails.Community);
+      } catch (err) {
+        console.error("Error fetching data", err);
+      }
+    };
+    fetchUser();
+  }, []);
 
   const handleSignOut = () => {
     setDropdownOpen(!dropdownOpen);
@@ -68,7 +87,7 @@ function DropdownProfile({ align }) {
         />
         <div className="flex items-center truncate">
           <span className="truncate ml-2 text-sm font-medium group-hover:text-slate-800">
-            tiny miracales
+            {name}
           </span>
           <svg
             className="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400"
@@ -97,8 +116,8 @@ function DropdownProfile({ align }) {
           onBlur={() => setDropdownOpen(false)}
         >
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200">
-            <div className="font-medium text-slate-800">Tuny miracales</div>
-            <div className="text-xs text-slate-500 italic">Administrator</div>
+            <div className="font-medium text-slate-800">{name}</div>
+            <div className="text-xs text-slate-500 italic"> {community}</div>
           </div>
           <ul>
             <li>

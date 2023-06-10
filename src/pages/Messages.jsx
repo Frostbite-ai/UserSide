@@ -5,15 +5,21 @@ import Header from "../partials/Header";
 import DialogflowMessenger from "../utils/DialogflowMessenger";
 
 function Messages() {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = "https://static.airtable.com/js/embed/embed_snippet_v1.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+  }, []);
+
   const contentArea = useRef(null);
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <DialogflowMessenger />
       {/* Content area */}
       <div
         className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden"
@@ -30,7 +36,7 @@ function Messages() {
               frameborder="0"
               onmousewheel=""
               width="100%"
-              height="879"
+              height="800"
               style={{ background: "transparent", border: "1px solid #ccc" }}
               title="Airtable Form"
             />

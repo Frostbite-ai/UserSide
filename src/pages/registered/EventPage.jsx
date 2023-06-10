@@ -188,25 +188,6 @@ export default function RegisteredEventPost() {
                   </div>
                   <div className="">Attended ({postInfo.attended.length})</div>
                 </div>
-
-                <div className="flex justify-between space-x-1 mb-0 bg-white p-5 shadow-lg rounded-sm border border-slate-200 text-sm text-slate-800 font-semibold lg:w-72 xl:w-80">
-                  {postInfo && (
-                    <Pie
-                      data={{
-                        labels: ["Attended", "Did not Attend"],
-                        datasets: [
-                          {
-                            data: [attended, didNotAttend],
-                            backgroundColor: [
-                              "rgba(75, 192, 192, 1)", // darker cyan
-                              "rgba(255, 99, 132, 1)", // darker pink
-                            ],
-                          },
-                        ],
-                      }}
-                    />
-                  )}
-                </div>
               </div>
             </div>
           </div>
