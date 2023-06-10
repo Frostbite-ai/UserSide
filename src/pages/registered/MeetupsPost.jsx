@@ -7,7 +7,7 @@ function MeetupsPosts({
   _id,
   eventName,
   category,
-  location,
+  eventLocation,
   eventDuration,
   eventStartTime,
   eventDetails,
@@ -27,7 +27,7 @@ function MeetupsPosts({
       <article className="flex bg-white shadow-lg rounded-sm border border-slate-200 overflow-hidden">
         {/* Image */}
         <Link
-          className="relative block w-24 sm:w-56 xl:sidebar-expanded:w-40 2xl:sidebar-expanded:w-56 shrink-0"
+          className="relative block w-20 sm:w-56 xl:sidebar-expanded:w-40 2xl:sidebar-expanded:w-56 shrink-0"
           to={`/registered/${_id}`}
         >
           <img
@@ -39,10 +39,9 @@ function MeetupsPosts({
           />
         </Link>
         {/* Content */}
-        <div className="grow p-5 flex flex-col">
-          {/* <div className="grow">
-            {/* Event date */}
-          <div className="text-sm font-semibold text-indigo-500 uppercase mb-2">
+        <div className="grow p-4 sm:p-5 flex flex-col">
+          {/* Event date */}
+          <div className="sm:text-sm text-xs  font-semibold text-indigo-500 uppercase mb-2">
             <EventDisplay
               eventStartTime={eventStartTime}
               eventDuration={eventDuration}
@@ -50,11 +49,14 @@ function MeetupsPosts({
           </div>
           <Link className="inline-flex mb-2" to={`/registered/${_id}`}>
             {/* event name */}
-            <h3 className="text-lg font-bold text-slate-800">{eventName}</h3>
+            <h3 className="text-base sm:text-lg font-bold text-slate-800">
+              {eventName}
+            </h3>
           </Link>
           {/* Event details */}
-          <div className="text-sm">{truncateString(eventDetails, 180)}</div>
-          {/* </div> */}
+          <div className="text-xs sm:text-sm">
+            {truncateString(eventDetails, 180)}
+          </div>
           {/* Footer */}
           <div className="flex justify-between mt-3">
             {/* Tag */}

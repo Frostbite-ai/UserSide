@@ -5,16 +5,28 @@ import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
 import DialogflowMessenger from "../../utils/DialogflowMessenger";
 import Tasks from "./Tasks";
+import Feedback from "./Feedback"; // Import the Feedback component
 
 function TasksList() {
   const [tasks, setTasks] = useState([]);
+  const [followUps, setFollowUps] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60";
 
   useEffect(() => {
     axios
-      .get("http://15.206.18.143:3000/events/list")
+      .get(`http://localhost:3000/user/getFollowUpPending/${userID}`)
       .then((response) => {
         setTasks(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+
+    axios
+      .get(`http://localhost:3000/user/getFollowUpDone/${userID}`)
+      .then((response) => {
+        setFollowUps(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -41,30 +53,23 @@ function TasksList() {
                 {/* Left: Title */}
                 <div className="mb-4 sm:mb-0">
                   <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">
-                    Follow Up
+                    Follow-Up Feedback
                   </h1>
                 </div>
               </div>
 
               {/* Tasks */}
-              <div className="space-y-6">
+              <div className="space-y-3">
                 {/* Group 1 */}
-                <div>
-                  <h2 className="grow font-semibold text-slate-800 truncate mb-4">
-                    To Do's 🖋️
-                  </h2>
-                </div>
 
                 {/* Group 2 */}
                 <div>
-                  <h2 className="grow font-semibold text-slate-800 truncate mb-4">
-                    In Progress ✌️
-                  </h2>
+                  <h2 className="grow font-semibold text-slate-800 truncate mb-4"></h2>
                   <div className="space-y-2">
                     {/* Task */}
                     {tasks.map((task) => (
                       <div
-                        className="bg-white shadow-lg rounded-sm border border-slate-200 p-4"
+                        className="bg-white shadow-lg rounded-sm mb-4 border border-slate-200 p-4"
                         draggable="true"
                         key={task._id}
                       >
@@ -77,6 +82,16 @@ function TasksList() {
                   </div>
                 </div>
                 {/* Group 3 */}
+              </div>
+              <div>
+                <h1 className="text-2xl md:text-3xl mt-10 mb-2 text-slate-800 font-bold">
+                  Give Feedback
+                </h1>
+                <div className="space-y-2 ">
+                  {followUps.map((followUp) => (
+                    <Feedback key={followUp._id} followUp={followUp} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

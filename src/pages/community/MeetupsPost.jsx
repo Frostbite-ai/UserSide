@@ -43,7 +43,7 @@ function MeetupsPosts({
           {" "}
           {/* Adjusted padding */}
           {/* Event date */}
-          <div className="text-sm font-semibold text-indigo-500 uppercase mb-2">
+          <div className="sm:text-sm text-xs font-semibold text-indigo-500 uppercase mb-2">
             <EventDisplay
               eventStartTime={eventStartTime}
               eventDuration={eventDuration}
