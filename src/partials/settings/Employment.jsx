@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
 import { useTranslation } from "react-i18next";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 function Employment() {
   const [currentEmployment, setCurrentEmployment] = useState(""); // state variable for currentEmployment
@@ -11,8 +12,12 @@ function Employment() {
   const [openForEmployment, setOpenForEmployment] = useState(""); // state variable for openForEmployment
   const { i18n } = useTranslation();
   const { t } = useTranslation();
-  const id = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now
+  // Get token from local storage
+  const token = localStorage.getItem("token");
 
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const id = decodedToken._id; // use "_id" to extract user ID from decoded token
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
@@ -38,7 +43,7 @@ function Employment() {
 
     try {
       const response = await axios.put(
-        `hhttp://15.206.18.143:3000/user/userUpdates/${id}`,
+        `http://15.206.18.143:3000/user/userUpdates/${id}`,
         {
           employmentStatus: {
             currentEmployment: currentEmployment,

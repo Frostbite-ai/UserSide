@@ -5,6 +5,7 @@ import EventDisplay from "./DateFormat";
 import axios from "axios";
 import { Pie } from "react-chartjs-2";
 import DialogflowMessenger from "../../utils/DialogflowMessenger";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
@@ -21,7 +22,11 @@ export default function RegisteredEventPost() {
   const registered = postInfo ? postInfo.registered.length : 0;
   const didNotAttend = registered - attended;
 
-  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now reaplce it by userid from token
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const userID = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   useEffect(() => {
     fetch(`http://15.206.18.143:3000/events/list/${id}`).then((response) => {

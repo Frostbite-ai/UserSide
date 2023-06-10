@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
@@ -11,11 +12,16 @@ function TasksList() {
   const [tasks, setTasks] = useState([]);
   const [followUps, setFollowUps] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60";
+  // Get token from local storage
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const userID = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/user/getFollowUpPending/${userID}`)
+      .get(`http://15.206.18.143:3000/user/getFollowUpPending/${userID}`)
       .then((response) => {
         setTasks(response.data);
       })
@@ -24,7 +30,7 @@ function TasksList() {
       });
 
     axios
-      .get(`http://localhost:3000/user/getFollowUpDone/${userID}`)
+      .get(`http://15.206.18.143:3000/user/getFollowUpDone/${userID}`)
       .then((response) => {
         setFollowUps(response.data);
       })

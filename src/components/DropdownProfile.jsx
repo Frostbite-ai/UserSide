@@ -5,12 +5,11 @@ import Transition from "../utils/Transition";
 import { useAuth } from "../hooks/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 import UserAvatar from "../images/user-avatar-32.png";
 
 function DropdownProfile({ align }) {
   const { setIsLoggedIn } = useAuth();
-  const id = "fb4a5c31-2c40-4140-a73f-64abc7f2b8df";
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [name, setName] = useState("");
   const [community, setCommunity] = useState("");
@@ -18,6 +17,12 @@ function DropdownProfile({ align }) {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
   const { t } = useTranslation();
+  // Get token from local storage
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const id = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   useEffect(() => {
     const fetchUser = async () => {

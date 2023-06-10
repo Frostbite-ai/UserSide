@@ -4,6 +4,7 @@ import React from "react";
 import EventDisplay from "./DateFormat";
 import axios from "axios";
 import DialogflowMessenger from "../../utils/DialogflowMessenger";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
@@ -17,7 +18,12 @@ export default function EventPost() {
   const { id } = useParams();
   const [isRegistered, setIsRegistered] = useState(false);
 
-  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60"; // Constant user ID for now reaplce it by userid from token
+  // Get token from local storage
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const userID = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   useEffect(() => {
     fetch(`http://15.206.18.143:3000/events/list/${id}`).then((response) => {
@@ -31,7 +37,7 @@ export default function EventPost() {
     if (postInfo) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/user/registerForAnEvent",
+          "http://15.206.18.143:3000/user/registerForAnEvent",
           {
             eventId: postInfo._id,
             userId: userID,

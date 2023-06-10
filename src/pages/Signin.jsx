@@ -19,10 +19,13 @@ const Signin = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
-        PhoneNumber: phoneNumber,
-        pwd: password,
-      });
+      const response = await axios.post(
+        "http://15.206.18.143:3000/user/login",
+        {
+          PhoneNumber: phoneNumber,
+          pwd: password,
+        }
+      );
 
       if (response.status === 200) {
         // store JWT token in localStorage or sessionStorage

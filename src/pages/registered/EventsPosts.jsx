@@ -3,13 +3,18 @@ import axios from "axios";
 import MeetupsPost from "./MeetupsPost";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 export default function EventsPosts() {
   const [posts, setPosts] = useState([]);
   const [attendedPosts, setAttendedPosts] = useState([]);
-  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60";
   const { i18n } = useTranslation();
   const { t } = useTranslation();
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const userID = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   useEffect(() => {
     axios

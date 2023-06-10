@@ -1,13 +1,19 @@
 import React from "react";
 import axios from "axios"; // You need to install axios via npm if it's not installed yet
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 function Tasks({ task }) {
-  const userID = "d667476a-6f64-47c4-8eb7-4d4504927b60";
+  // Get token from local storage
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const userID = decodedToken._id; // use "_id" to extract user ID from decoded token
 
   const markUserFollowedUp = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/markUserFollowedUp",
+        "http://15.206.18.143:3000/user/markUserFollowedUp",
         {
           eventId: task._id,
           userId: userID,

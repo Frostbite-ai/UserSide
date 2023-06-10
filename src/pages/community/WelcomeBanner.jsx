@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 function WelcomeBanner() {
   const [name, setName] = useState(""); // State to store the user's name
-  const id = "fb4a5c31-2c40-4140-a73f-64abc7f2b8df"; // Replace with actual user id
+  const token = localStorage.getItem("token");
+
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const id = decodedToken._id; // use "_id" to extract user ID from decoded token
   // useEffect hook runs when the component mounts
   const { i18n } = useTranslation();
   const { t } = useTranslation();

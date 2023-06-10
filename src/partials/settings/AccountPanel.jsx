@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // import axios for making HTTP requests
+import jwt_decode from "jwt-decode"; // import jwt-decode for decoding JWT token
 
 function AccountPanel() {
   const [kids, setKids] = useState(0);
@@ -16,8 +17,12 @@ function AccountPanel() {
   const [maritalStatus, setMaritalStatus] = useState(""); // state variable for marital status
   const [familyIncome, setFamilyIncome] = useState(""); // state variable for family income
   const [community, setCommunityStatus] = useState(""); // state variable for marital status
-  const id = "fb4a5c31-2c40-4140-a73f-64abc7f2b8df"; // Constant user ID for now
+  // Get token from local storage
+  const token = localStorage.getItem("token");
 
+  // Decode token and extract user ID
+  const decodedToken = jwt_decode(token);
+  const id = decodedToken._id; // use "_id" to extract user ID from decoded token
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
